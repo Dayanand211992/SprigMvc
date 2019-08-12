@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+    <!-- <bean  id ="e_id" class="com.circulardependencydemo.Employee" >
+   <constructor-arg name="emark" value="80" ></constructor-arg>
+   <constructor-arg name="eid" value="1"  ></constructor-arg>
+      <constructor-arg name="ename" value="Abc" ></constructor-arg>
+            <constructor-arg name="add" ref="add" ></constructor-arg> 
+      
+   
+      
+    </bean>
+     <bean id="add" class="com.circulardependencydemo.Address"  >
+    
+    <constructor-arg name="pin" value="413101"></constructor-arg>
+      <constructor-arg name="city" value="pune"></constructor-arg>
+     <constructor-arg name="add" ref="e_id" ></constructor-arg> 
+   
+    
+    
+    </bean>   -->
+    
+    
+   
+     <bean id ="e_id1" class="com.circulardependencydemo.Employee" scope="prototype">
+      <property name = "eid" value = "2"/>
+            <property name = "ename" value = "A"/>
+            <property name = "emark" value = "90"/>
+                        <property name="add" ref="add1"/>
+            
+            </bean>
+            
+             
+             <bean id = "add1" class="com.circulardependencydemo.Address" scope="prototype">
+      <property name = "pin" value = "413113"/>
+            <property name = "city" value = "mumbai"/>
+            <property name="ee" ref="e_id1"/>
+            </bean>  
+<!--              we can not use byName or byType autowiring type in constructor injection otherwise get
+Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'e_id' defined in class path resource [circulardependencydemo.xml]: Unsatisfied dependency expressed through constructor parameter 3: Ambiguous argument values for parameter of type [com.circulardependencydemo.Address] - did you specify the correct bean references as arguments?
+ we can use autodetect type use in constructor injection then get Exception in thread "main" org.springframework.beans.factory.xml.XmlBeanDefinitionStoreException: Line 7 in XML document from class path resource [circulardependencydemo.xml] is invalid; nested exception is org.xml.sax.SAXParseException; lineNumber: 7; columnNumber: 89; cvc-enumeration-valid: Value 'autodetect' is not facet-valid with respect to enumeration '[default, no, byName, byType, constructor]'. It must be a value from the enumeration.
+ 
+ -->  
+</beans>

@@ -1,0 +1,100 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!-- <beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+    xmlns:context = "http://www.springframework.org/schema/context">
+    -->
+  <beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+     
+
+   
+      <context:annotation-config/>
+   
+
+<!--    <bean id = "s_id" class = "com.spring.autowiringtype.Student"  autowire="byName" >
+ -->      
+  <!-- <bean id = "s_id" class = "com.spring.autowiringtype.Student"  autowire="byType" >
+    -->
+ <!--  <bean id = "s_id" class = "com.spring.autowiringtype.Student"  autowire="constructor" >
+ --> 
+    
+    <!--   <property name = "sid" value = "1"/>
+            <property name = "sname" value = "Dada"/>
+            
+   </bean>
+   <bean id="aid1" class="com.spring.autowiringtype.Address">
+  
+ 
+  <property name="pin" value="41313" />
+   <property name="city" value="Delhi" />
+    </bean>  -->
+  
+    
+    
+     <!--  autow.irebyName=Name given in class is same name given to id
+      
+      Default constructor of Student
+Default constructor of Address
+Student [sid=1, sname=Dada, aid=null]
+Address [null]
+      
+      
+      autowirebyType=Name given in class is not same tri pn chalel pn tya type cha bean de mnje student mde address ahe tr address cha de
+    
+        output-
+        Default constructor of Student
+Default cons.tructor of Address
+Student [sid=.1, sname=Dada, aid=Address [pin=41313, city=mumbai]]
+Address [pin=4.1313, city=mumbai]
+        . -->
+    
+    
+  <!--  <bean  id ="s_id" class="com.spring.autowiringtype.Student" >
+   
+   <constructor-arg name="sid" value="1"></constructor-arg>
+      <constructor-arg name="sname" value="Abc"></constructor-arg>
+   
+      <constructor-arg name="aid" ref="aid"></constructor-arg>
+    </bean> -->
+    <!-- <bean id="aid" class="com.spring.autowiringtype.Address">
+    
+    <constructor-arg name="pin" value="413101"></constructor-arg>
+      <constructor-arg name="city" value="Mumbai"></constructor-arg>
+    
+    </bean>   -->
+      <!-- <bean id="aid" class="com.spring.autowiringtype.Address">
+  
+ 
+  <property name="pin" value="41313" />
+   <property name="city" value="Delhi" />
+    </bean> --> 
+   
+   <bean id ="s_id1" class ="com.spring.autowiringtype.Student"  autowire="byName">
+ 
+    
+    <property name = "sid" value = "1"/>
+              <property name = "sname" value = "Dada"/>
+           
+   </bean>
+   <bean id="aid" class="com.spring.autowiringtype.Address">
+  
+ 
+  <property name="pin" value="41313" />
+   <property name="city" value="Delhi" />
+    </bean>  
+    
+     <!--  constructor type acheive useing constructor based injection 
+        In setter based injection it show null output
+        In construct based injection byType and byName Not use otherwise get error -->
+           
+        
+     </beans>
